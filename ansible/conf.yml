@@ -1,0 +1,137 @@
+- name: "Install kubearmor"
+  hosts: default
+  become: true
+  handlers:
+  tasks:
+    - include_vars:
+        dir: ./vars
+
+    - name: Ensure curl
+      become: true
+      package:
+        name: curl
+        state: present
+
+    - name: Ensure build-essential
+      package:
+        name: build-essential
+        state: present
+
+    - name: Ensure libelf-dev
+      package:
+        name: libelf-dev
+        state: present
+
+    - name: Ensure pkg-config
+      package:
+        name: pkg-config
+        state: present
+
+    - name: Ensure net-tools
+      package:
+        name: net-tools
+        state: present
+
+    - name: Ensure linux-headers
+      shell:
+        cmd: uname -r
+      register: uname_output
+
+    - name: Ensure linux-headers
+      package:
+        name: linux-headers-generic
+        state: present
+
+    - name: Ensure linux-headers
+      package:
+        name: linux-headers-{{ uname_output.stdout_lines[0] }}
+        state: present
+
+    - name: Ensure linux-tools
+      package:
+        name: linux-tools-{{ uname_output.stdout_lines[0] }}
+        state: present
+
+    - name: Ensure clang
+      package:
+        name: clang
+        state: present
+
+    - name: Ensure llvm
+      package:
+        name: llvm
+        state: present
+
+    - name: Ensure bpfcc-tools
+      package:
+        name: bpfcc-tools
+        state: present
+
+    - name: Create tmp folder
+      tempfile:
+        state: directory
+        path: /tmp
+      register: tmp_folder
+      
+    # check package managers
+    - block:
+      - name: Check RPM
+        command:
+          cmd: rpm --help
+        register: rpm
+        ignore_errors: true
+
+      
+      - name: Check dnf
+        command:
+          cmd: dnf --help
+        register: dnf
+        ignore_errors: true
+
+      - name: Check dpkg
+        command:
+          cmd: dpkg --help
+        register: dpkg
+        ignore_errors: true
+    
+    # Download kubearmor
+    - block:
+      - name: Download dpkg
+        get_url:
+          url: 'https://github.com/kubearmor/KubeArmor/releases/download/v0.11.0/kubearmor_{{ kubearmor_version }}_linux-{{ kubearmor_arch }}.deb'
+          dest: '{{ tmp_folder.path }}/kubearmor.deb'
+        when: not (dpkg.failed)
+
+      - name: Download RPM
+        get_url:
+          url: 'https://github.com/kubearmor/KubeArmor/releases/download/v0.11.0/kubearmor_{{ kubearmor_version }}_linux-{{ kubearmor_arch }}.rpm'
+          dest: '{{ tmp_folder.path }}/kubearmor.rpm'
+        when: not (rpm.failed and dnf.failed)
+      
+    # Install kubearmor
+    - block:
+      - name: Install using RPM
+        command:
+          cmd: rpm -i '{{ tmp_folder.path }}/kubearmor.rpm'
+        when: not rpm.failed
+
+      - name: Install using dpkg
+        command:
+          cmd: dpkg -i '{{ tmp_folder.path }}/kubearmor.deb'
+        when: not dpkg.failed
+
+    - block:
+      - name: Enable kubearmor service
+        systemd:
+          Enable: true
+          name: kubearmor
+
+      - name: Start kubearmor service
+        systemd:
+          state: started
+          name: kubearmor
+
+    - block:
+      - name: Install karmor
+        shell:
+          cmd: curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin

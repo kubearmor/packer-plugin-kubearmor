@@ -3,41 +3,26 @@
 
 packer {
   required_plugins {
-    scaffolding = {
-      version = ">=v0.1.0"
-      source  = "github.com/hashicorp/scaffolding"
+    docker = {
+      version = ">= 0.0.7"
+      source = "github.com/hashicorp/docker"
     }
   }
 }
 
-source "scaffolding-my-builder" "foo-example" {
-  mock = local.foo
-}
-
-source "scaffolding-my-builder" "bar-example" {
-  mock = local.bar
+source "docker" "ubuntu" {
+  image  = "ubuntu:xenial"
+  commit = true
 }
 
 build {
+  name = "learn-packer"
   sources = [
-    "source.scaffolding-my-builder.foo-example",
+    "source.docker.ubuntu"
   ]
 
-  source "source.scaffolding-my-builder.bar-example" {
-    name = "bar"
-  }
-
-  provisioner "scaffolding-my-provisioner" {
-    only = ["scaffolding-my-builder.foo-example"]
-    mock = "foo: ${local.foo}"
-  }
-
-  provisioner "scaffolding-my-provisioner" {
-    only = ["scaffolding-my-builder.bar"]
-    mock = "bar: ${local.bar}"
-  }
-
-  post-processor "scaffolding-my-post-processor" {
-    mock = "post-processor mock-config"
+  provisioner "kubearmor" {
+    policyPath = "/policies" 
   }
 }
+
