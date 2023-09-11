@@ -1,4 +1,4 @@
-NAME=scaffolding
+NAME=kubearmor
 BINARY=packer-plugin-${NAME}
 
 COUNT?=1
@@ -32,3 +32,8 @@ testacc: dev
 
 generate: install-packer-sdc
 	@go generate ./...
+
+release:
+	$(MAKE) check-generated
+	API_VERSION="$(shell go run . describe 2>/dev/null | jq -r .api_version)" \
+		$(GORELEASER) release
