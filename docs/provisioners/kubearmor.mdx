@@ -20,6 +20,7 @@ Type: `kubearmor`
 
 ### Example Usage
 
+With docker uase case :
 
 ```hcl
 packer {
@@ -27,6 +28,10 @@ packer {
     docker = {
       version = ">= 0.0.7"
       source = "github.com/hashicorp/docker"
+    }
+    kubearmor = {
+      version = ">= 0.0.1"
+      source = "github.com/hashicorp/kubearmor"
     }
   }
 }
@@ -47,4 +52,46 @@ build {
   }
 }
 
+```
+
+With virtualbox use case :
+
+```
+packer {
+  required_plugins {
+    virtualbox-ovf = {
+      source  = "github.com/hashicorp/virtualbox"
+      version = "~> 1"
+    }
+    ansible = {
+      source  = "github.com/hashicorp/ansible"
+      version = "~> 1"
+    }
+    kubearmor = {
+      version = ">= 0.0.1"
+      source = "github.com/hashicorp/kubearmor"
+    }
+  }
+}
+
+source "virtualbox-ovf" "basic-example" {
+  source_path = "ubuntu20.ova"
+  ssh_username = ""
+  ssh_password = ""
+  shutdown_command = "echo 'packer' | sudo -S shutdown -P now"
+}
+
+build {
+  name = "learn-packer"
+  sources = ["sources.virtualbox-ovf.basic-example"]
+  
+ 
+  provisioner "ansible" {
+    playbook_file = "./ansible/conf.yml"
+  }
+
+  provisioner "kubearmor" {
+    policyPath = "/home/prateek/policies"
+  }
+}
 ```

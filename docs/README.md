@@ -1,5 +1,11 @@
 # KubeArmor Plugins
 
+A plugin for Packer which provides [KubeArmor Hardening Host Security policies](https://docs.kubearmor.io/kubearmor/use-cases/hardening_guide) for the build workloads.
+
+> [KubeArmor](https://docs.kubearmor.io/kubearmor/) is a security solution for the Kubernetes and cloud native platforms that helps protect your workloads from attacks and threats. It does this by providing a set of hardening policies that are based on industry-leading compliance and attack frameworks such as CIS, MITRE, NIST-800-53, and STIGs. These policies are designed to help you secure your workloads in a way that is compliant with these frameworks and recommended best practices.
+
+The KubeArmor provisioner will configure the build and provide the [KubeArmor Hardening Host Security Policies](https://docs.kubearmor.io/kubearmor/use-cases/hardening_guide). These hardening policies will be in the context of your workload, so you can see how they will be applied and what impact they will have on your system. This allows you to make informed decisions about which policies to apply, and helps you understand the trade-offs between security and functionality.
+
 <!--
   Include a short overview about the plugin.
 
@@ -25,9 +31,9 @@ Then, run [`packer init`](https://www.packer.io/docs/commands/init).
 ```hcl
 packer {
   required_plugins {
-    name = {
+    kubearmor = {
       version = ">= 0.0.1"
-      source  = "github.com/hashicorp/name"
+      source  = "github.com/hashicorp/kubearmor"
     }
   }
 }

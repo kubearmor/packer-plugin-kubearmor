@@ -32,6 +32,10 @@ packer {
       source  = "github.com/hashicorp/ansible"
       version = "~> 1"
     }
+    kubearmor = {
+      version = ">= 0.0.1"
+      source = "github.com/hashicorp/kubearmor"
+    }
   }
 }
 

@@ -7,6 +7,10 @@ packer {
       version = ">= 0.0.7"
       source = "github.com/hashicorp/docker"
     }
+    kubearmor = {
+      version = ">= 0.0.1"
+      source = "github.com/hashicorp/kubearmor"
+    }
   }
 }
 
