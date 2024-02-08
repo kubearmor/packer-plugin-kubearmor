@@ -55,12 +55,12 @@ repository locally and run the command `go build` from the root
 directory. Upon successful compilation, a `packer-plugin-name` plugin
 binary file can be found in the root directory.
 To install the compiled plugin, please follow the official Packer documentation
-on [installing a plugin](https://www.packer.io/docs/extending/plugins/#installing-plugins).
+on [installing a plugin](https://developer.hashicorp.com/packer/docs/plugins/install-plugins).
 
 
 ## Plugin Contents
 
 ### Provisioners
 
-- [kubearmor](/docs/provisioners/kubearmor.mdx) - The kubearmor provisioner is used to provisioner
+- [kubearmor](/packer/integrations/KubeArmor/latest/components/provisioner/kubearmor) - The kubearmor provisioner is used to provisioner
   Packer builds and provide the packer builds KubeArmor Host Security Policies.
