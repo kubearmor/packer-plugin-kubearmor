@@ -5,9 +5,9 @@
 # Alternatively this metadata.hcl file can be placed under the docs/ subdirectory or any other config subdirectory that 
 # makes senses for the plugin. 
 integration {
-  name = "packer-plugin-KubeArmor"
-  description = "A plugin for KubeArmor which provides KubeArmor Hardening Security policies for the build workloads"
-  identifier = "packer/hashicorp/kubearmor"
+  name = "packer-plugin-kubearmor"
+  description = "a plugin for kubearmor which provides kubearmor hardening security policies for the build workloads"
+  identifier = "packer/kubeArmor/kubearmor"
   docs {
     process_docs = true
     # We recommend using the default readme_location of just `./README.md` here
@@ -19,7 +19,7 @@ integration {
   }
   license {
     type = "MPL-2.0"
-    url = "https://github.com/hashicorp/integration-template/blob/main/LICENSE.md"
+    url = "https://github.com/kubearmor/packer-plugin-kubearmor/blob/main/LICENSE"
   }
   component {
     type = "provisioner"
