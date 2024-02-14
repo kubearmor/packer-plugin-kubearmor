@@ -8,7 +8,7 @@ require (
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/hashicorp/hcl/v2 v2.19.1
 	github.com/hashicorp/packer-plugin-sdk v0.5.2
-	github.com/kubearmor/KubeArmor/KubeArmor v0.0.0-20230829031754-1e57ef20b00c
+	github.com/kubearmor/KubeArmor/KubeArmor v0.11.0
 	github.com/kubearmor/KubeArmor/pkg/KubeArmorController v0.0.0-20230829031754-1e57ef20b00c
 	github.com/sirupsen/logrus v1.9.3
 	github.com/zclconf/go-cty v1.13.3
