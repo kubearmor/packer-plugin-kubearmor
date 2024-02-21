@@ -7,7 +7,7 @@
 integration {
   name = "packer-plugin-kubearmor"
   description = "a plugin for kubearmor which provides kubearmor hardening security policies for the build workloads"
-  identifier = "packer/kubeArmor/kubearmor"
+  identifier = "packer/kubearmor/kubearmor"
   docs {
     process_docs = true
     # We recommend using the default readme_location of just `./README.md` here
