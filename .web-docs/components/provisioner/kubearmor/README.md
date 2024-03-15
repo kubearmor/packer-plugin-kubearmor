@@ -1,6 +1,6 @@
 Type: `kubearmor`
 
-  The `kubearmor` Packer provisioner will configure the build and provide the [KubeArmor Hardening Host Security Policies](https://docs.kubearmor.io/kubearmor/use-cases/hardening_guide). These hardening policies will be in the context of your workload, so you can see how they will be applied and what impact they will have on your system. This allows you to make informed decisions about which policies to apply, and helps you understand the trade-offs between security and functionality.
+  The KubeArmor provisioner will configure the build and provide the [KubeArmor Hardening Host Security Policies](https://docs.kubearmor.io/kubearmor/use-cases/hardening_guide). These hardening policies will be in the context of your workload, so you can see how they will be applied and what impact they will have on your system. This allows you to make informed decisions about which policies to apply, and helps you understand the trade-offs between security and functionality.
 
 
 <!-- Provisioner Configuration Fields -->
