@@ -1,4 +1,4 @@
-# KubeArmor Plugins
+# KubeArmor
 
 A plugin for Packer which provides [KubeArmor Hardening Host Security policies](https://docs.kubearmor.io/kubearmor/use-cases/hardening_guide) for the build workloads.
 
@@ -51,5 +51,5 @@ on [installing a plugin](https://developer.hashicorp.com/packer/docs/plugins/ins
 
 ### Provisioners
 
-- [kubearmor](/packer/integrations/kubearmor/latest/components/provisioner/kubearmor) - The kubearmor provisioner is used to provisioner
+- [kubearmor](/packer/integrations/kubearmor/kubearmor/latest/components/provisioner/kubearmor) - The kubearmor provisioner is used to provisioner
   Packer builds and provide the packer builds KubeArmor Host Security Policies.
