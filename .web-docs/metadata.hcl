@@ -7,7 +7,7 @@
 integration {
   name = "KubeArmor"
   description = "The KubeArmor plugin which provides kubearmor hardening security policies for the build workloads"
-  identifier = "packer/hashicorp/kubearmor"
+  identifier = "packer/kubearmor/kubearmor"
   component {
     type = "provisioner"
     name = "KubeArmor"
