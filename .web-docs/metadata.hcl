@@ -11,6 +11,6 @@ integration {
   component {
     type = "provisioner"
     name = "KubeArmor"
-    slug = "KubeArmor"
+    slug = "kubearmor"
   }
 }
