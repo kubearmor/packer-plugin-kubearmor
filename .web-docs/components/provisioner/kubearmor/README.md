@@ -23,7 +23,7 @@ packer {
     }
     kubearmor = {
       version = ">= 0.0.1"
-      source = "github.com/hashicorp/kubearmor"
+      source = "github.com/kubearmor/kubearmor"
     }
   }
 }
@@ -61,7 +61,7 @@ packer {
     }
     kubearmor = {
       version = ">= 0.0.1"
-      source = "github.com/hashicorp/kubearmor"
+      source = "github.com/kubearmor/kubearmor"
     }
   }
 }
