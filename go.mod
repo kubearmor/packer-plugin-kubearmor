@@ -11,7 +11,7 @@ require (
 	github.com/kubearmor/KubeArmor/KubeArmor v0.0.0-20230829031754-1e57ef20b00c
 	github.com/kubearmor/KubeArmor/pkg/KubeArmorController v0.0.0-20230829031754-1e57ef20b00c
 	github.com/sirupsen/logrus v1.9.3
-	github.com/zclconf/go-cty v1.13.3
+	github.com/zclconf/go-cty v1.15.0
 	sigs.k8s.io/yaml v1.3.0
 )
 
