@@ -6,7 +6,7 @@ require (
 	github.com/clarketm/json v1.17.1
 	github.com/fatih/color v1.15.0
 	github.com/google/go-github v17.0.0+incompatible
-	github.com/hashicorp/hcl/v2 v2.19.1
+	github.com/hashicorp/hcl/v2 v2.22.0
 	github.com/hashicorp/packer-plugin-sdk v0.5.2
 	github.com/kubearmor/KubeArmor/KubeArmor v0.0.0-20230829031754-1e57ef20b00c
 	github.com/kubearmor/KubeArmor/pkg/KubeArmorController v0.0.0-20230829031754-1e57ef20b00c
@@ -18,6 +18,7 @@ require (
 require (
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
+	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/aws/aws-sdk-go v1.44.114 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
@@ -70,10 +71,12 @@ require (
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
+	golang.org/x/mod v0.13.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
+	golang.org/x/tools v0.14.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	k8s.io/apimachinery v0.27.1 // indirect
@@ -86,4 +89,4 @@ require (
 
 replace github.com/zclconf/go-cty => github.com/nywilken/go-cty v1.12.1 // added by packer-sdc fix as noted in github.com/hashicorp/packer-plugin-sdk/issues/187
 
-replace github.com/hashicorp/hcl/v2 => github.com/hashicorp/hcl/v2 v2.16.2
+replace github.com/hashicorp/hcl/v2 => github.com/hashicorp/hcl/v2 v2.22.0
