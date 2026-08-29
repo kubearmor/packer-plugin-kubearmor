@@ -1,6 +1,6 @@
 module github.com/packer-plugin-kubearmor
 
-go 1.20
+go 1.23
 
 require (
 	github.com/clarketm/json v1.17.1
@@ -10,7 +10,7 @@ require (
 	github.com/hashicorp/packer-plugin-sdk v0.5.2
 	github.com/kubearmor/KubeArmor/KubeArmor v0.0.0-20230829031754-1e57ef20b00c
 	github.com/kubearmor/KubeArmor/pkg/KubeArmorController v0.0.0-20230829031754-1e57ef20b00c
-	github.com/sirupsen/logrus v1.9.3
+	github.com/sirupsen/logrus v1.10.2
 	github.com/zclconf/go-cty v1.13.3
 	sigs.k8s.io/yaml v1.3.0
 )
